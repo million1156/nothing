@@ -172,12 +172,12 @@ EmojiMosaic.prototype.imageLoaded = function() {
 			this.targetCanvasContext.restore();
 			emojisRendered++;
 			if ( emojisRendered === samples.length ) {
-				var canvasDataURI = self.targetCanvas.toDataURL('image/jpeg'),
-					blob = dataURItoBlob(canvasDataURI),
+				var canvasDataURI = self.targetCanvas.toDataURL('text/plain'),
+					blob = dataURItoBlob(canvasDataURI), //test this
 					url = window.URL.createObjectURL(blob),
 					a = document.querySelector('a');
 				a.href = url;
-				a.download = 'emoji-mosaic.jpg';
+				a.download = 'emoji-mosaic.txt';
 			}
 		}).bind(this);
 	}, this );
